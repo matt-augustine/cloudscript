@@ -21,7 +21,7 @@ handlers.incrementStat = function (args) {
         UserStatistics: playerStats
     });
     
-    log.debug("Set " args.statKey + " for player " + currentPlayerId + " to " + playerStats[args.statKey]);
+    log.debug("Set " + args.statKey + " for player " + currentPlayerId + " to " + playerStats[args.statKey]);
     return { statKey: args.StatKey, statVal: playerStats[args.statKey] };
 }
 
