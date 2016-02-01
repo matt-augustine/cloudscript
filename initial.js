@@ -1,3 +1,4 @@
+// Test various succes and error conditions
 
 handlers.helloWorld = function (args) {
     var message = "Hello " + currentPlayerId + "!";
