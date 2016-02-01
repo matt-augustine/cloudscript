@@ -27,7 +27,6 @@ handlers.incrementStat = function (args) {
 
 handlers.scriptErrorUnhandled = function (args) {
     var invalid = doesnotexist.yet;
-    log.error("invalid: " + invalid);
 }
 
 handlers.scriptErrorHandled = function (args) {
