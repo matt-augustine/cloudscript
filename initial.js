@@ -6,30 +6,11 @@ handlers.helloWorld = function (args) {
     return { messageValue: message };
 }
 
-handlers.incrementStat = function (args) {
-    var playerStats = server.GetUserStatistics({
-        PlayFabId: currentPlayerId
-    }).UserStatistics;
-
-    if (playerStats[args.statKey])
-        playerStats[args.statKey] += 1;
-    else
-        playerStats[args.statKey] = 1;
-
-    server.UpdateUserStatistics({
-        PlayFabId: currentPlayerId,
-        UserStatistics: playerStats
-    });
-    
-    log.debug("Set " + args.statKey + " for player " + currentPlayerId + " to " + playerStats[args.statKey]);
-    return { statKey: args.StatKey, statVal: playerStats[args.statKey] };
-}
-
-handlers.scriptErrorUnhandled = function (args) {
+handlers.scriptExceptionUnhandled = function (args) {
     var invalid = doesnotexist.yet;
 }
 
-handlers.scriptErrorHandled = function (args) {
+handlers.scriptExceptionHandled = function (args) {
     try {
         var invalid = 1 / 0;
     }
@@ -46,4 +27,11 @@ handlers.playFabAPIBadRequest = function (args) {
         PlayFabId: currentPlayerId,
         UserStatistics: "blah"
     });
+}
+
+handlers.callPlayFabAPIUntilTimeout = function (args) {
+    while(true) {
+        server.GetTitleNews({
+        });
+    }
 }
