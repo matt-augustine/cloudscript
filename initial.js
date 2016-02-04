@@ -31,7 +31,7 @@ handlers.playFabAPIBadRequest = function (args) {
 
 handlers.makeHttpRequestUntilTimeout = function (args) {
     while(true) {
-        var response = http.request("https://playfab.com");
+        var response = http.request("http://thisshouldnotresolve.tv");
         log.debug("received: " + response);
     }
 }
