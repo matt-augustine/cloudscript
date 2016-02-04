@@ -29,7 +29,7 @@ handlers.playFabAPIBadRequest = function (args) {
     });
 }
 
-handlers.callPlayFabAPIUntilTimeout = function (args) {
+handlers.makeHttpRequestUntilTimeout = function (args) {
     while(true) {
         var response = http.request("https://playfab.com");
         log.debug("received: " + response);
