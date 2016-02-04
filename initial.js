@@ -31,7 +31,7 @@ handlers.playFabAPIBadRequest = function (args) {
 
 handlers.callPlayFabAPIUntilTimeout = function (args) {
     while(true) {
-        server.GetTitleNews({
-        });
+        var response = http.request("https://playfab.com");
+        log.debug("received: " + response);
     }
 }
