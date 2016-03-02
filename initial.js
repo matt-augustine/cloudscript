@@ -17,9 +17,8 @@ handlers.scriptExceptionHandled = function (args) {
     catch(e)
     {
         log.error("caught: " + e);
+        return { handledException: e };
     }
-    
-    return { handledException: e };
 }
 
 handlers.playFabAPIBadRequest = function (args) {
