@@ -17,7 +17,6 @@ handlers.scriptExceptionHandled = function (args) {
     catch(e)
     {
         log.error("caught: " + e);
-        return { handledException: e };
     }
 }
 
