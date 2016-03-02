@@ -7,6 +7,7 @@ handlers.helloWorld = function (args) {
 }
 
 handlers.scriptExceptionUnhandled = function (args) {
+    log.info("before the error");
     var invalid = doesnotexist.yet;
 }
 
