@@ -18,9 +18,22 @@ handlers.playFabAPIBadRequest = function (args) {
     });
 }
 
-handlers.makeHttpRequestUntilTimeout = function (args) {
+handlers.httpOkRequest = function (args) {
+    var response = http.request("https://aaa.playfabapi.com/HealthStatus");
+    log.debug("received: " + response);
+}
+
+handlers.httpNotFoundRequest = function (args) {
+    var response = http.request("https://playfab.com/asfasfasfasf.html");
+    log.debug("received: " + response);
+}
+
+handlers.httpRequestUntilTimeout = function (args) {
     while(true) {
-        var response = http.request("http://cstest123.playfab.com");
-        log.debug("received: " + response);
+        var response = http.request("http://google.com");
     }
+}
+
+handlers.httpRequestDNSLookupFailure = function (args) {
+        var response = http.request("http://cstest123.playfab.com");
 }
