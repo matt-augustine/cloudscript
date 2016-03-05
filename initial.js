@@ -23,7 +23,12 @@ handlers.httpOkRequest = function (args) {
 }
 
 handlers.httpNotFoundRequest = function (args) {
-    var response = http.request("http://google.com/notfound");
+    var response = http.request("http://httpbin.org/status/404");
+    log.debug("received: " + response);
+}
+
+handlers.httpInternalServerErrorRequest = function (args) {
+    var response = http.request("http://httpbin.org/status/500");
     log.debug("received: " + response);
 }
 
