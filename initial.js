@@ -1,9 +1,29 @@
-// Test various succes and error conditions
-
-handlers.helloWorld = function (args) {
+handlers.helloWorld = function (args)
+{
     var message = 'Hello ' + currentPlayerId + '!';
     log.info(message);
     return { messageValue: message };
+}
+
+handlers.usingParams = function(args)
+{
+    var playerInternalData = server.GetUserInternalData(
+	{
+		PlayFabId: currentPlayerId,
+		Keys: ['test-key']
+	});
+
+    return { PlayerId: currentPlayerId, RandomString: args.RandomString, RandomNumber: args.RandomNumber, PlayerData: playerInternalData.Data['test-key']  };
+}
+
+handlers.usingParamsEncoded = function(args)
+{
+    var playerInternalData = server.GetUserInternalData(
+	{
+		PlayFabId: currentPlayerId,
+		Keys: ['test-key']
+	});
+    return { PlayerId: currentPlayerId, RandomString: args.RandomString, RandomNumber: args.RandomNumber, PlayerData: playerInternalData.Data['test-key']  };
 }
 
 handlers.scriptException = function (args) {
