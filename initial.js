@@ -6,19 +6,9 @@ handlers.helloWorld = function (args) {
     return { messageValue: message };
 }
 
-handlers.scriptExceptionUnhandled = function (args) {
+handlers.scriptException = function (args) {
     log.info("before the error");
     var invalid = doesnotexist.yet;
-}
-
-handlers.scriptExceptionHandled = function (args) {
-    try {
-        var invalid = 1 / 0;
-    }
-    catch(e)
-    {
-        log.error("caught: " + e);
-    }
 }
 
 handlers.playFabAPIBadRequest = function (args) {
