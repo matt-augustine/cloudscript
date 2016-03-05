@@ -34,7 +34,8 @@ handlers.httpInternalServerErrorRequest = function (args) {
 
 handlers.httpRequestUntilTimeout = function (args) {
     while(true) {
-        var response = http.request('http://google.com');
+        var response = http.request('http://httpbin.org/delay/10');
+        log.debug('delayed');
     }
 }
 
