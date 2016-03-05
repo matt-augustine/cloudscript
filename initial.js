@@ -5,6 +5,13 @@ handlers.helloWorld = function (args)
     return { messageValue: message };
 }
 
+handlers.echoToLogs = function(args)
+{
+	log.debug(args.debugText);
+	log.info(args.infoText);
+	log.error(args.errorText);
+}
+
 handlers.usingParams = function(args)
 {
     var playerInternalData = server.GetUserInternalData(
