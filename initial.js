@@ -28,7 +28,7 @@ handlers.httpNotFoundRequest = function (args) {
 }
 
 handlers.httpInternalServerErrorRequest = function (args) {
-    var response = http.request("http://httpbin.org/status/500");
+    var response = http.request('http://httpbin.org/status/500');
     log.debug('received: ' + response);
 }
 
@@ -39,5 +39,5 @@ handlers.httpRequestUntilTimeout = function (args) {
 }
 
 handlers.httpRequestDNSLookupFailure = function (args) {
-        var response = http.request("http://cstest123.playfab.com");
+        var response = http.request('http://cstest123.playfab.com');
 }
