@@ -23,7 +23,7 @@ handlers.httpOkRequest = function (args) {
 }
 
 handlers.httpNotFoundRequest = function (args) {
-    var response = http.request("https://playfab.com/asfasfasfasf.html");
+    var response = http.request("http://google.com/notfound");
     log.debug("received: " + response);
 }
 
