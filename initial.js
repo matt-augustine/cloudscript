@@ -29,12 +29,12 @@ handlers.httpNotFoundRequest = function (args) {
 
 handlers.httpInternalServerErrorRequest = function (args) {
     var response = http.request("http://httpbin.org/status/500");
-    log.debug("received: " + response);
+    log.debug('received: ' + response);
 }
 
 handlers.httpRequestUntilTimeout = function (args) {
     while(true) {
-        var response = http.request("http://google.com");
+        var response = http.request('http://google.com');
     }
 }
 
