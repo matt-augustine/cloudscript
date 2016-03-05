@@ -20,7 +20,7 @@ handlers.playFabAPIBadRequest = function (args) {
 
 handlers.makeHttpRequestUntilTimeout = function (args) {
     while(true) {
-        var response = http.request("http://google.com");
+        var response = http.request("http://cstest123.playfab.com");
         log.debug("received: " + response);
     }
 }
