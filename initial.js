@@ -13,8 +13,7 @@ handlers.scriptException = function (args) {
 
 handlers.playFabAPIBadRequest = function (args) {
     server.UpdateUserStatistics({
-        PlayFabId: currentPlayerId,
-        UserStatistics: "blah"
+        PlayFabId: currentPlayerId
     });
 }
 
