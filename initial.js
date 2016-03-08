@@ -39,6 +39,7 @@ handlers.scriptException = function (args) {
 }
 
 handlers.playFabAPIBadRequest = function (args) {
+    log.info('before the error');
     server.UpdateUserStatistics({
         PlayFabId: currentPlayerId
     });
@@ -55,11 +56,12 @@ handlers.httpNotFoundRequest = function (args) {
 }
 
 handlers.httpInternalServerErrorRequest = function (args) {
-    var response = http.request('http://httpbin.org/status/500');
+    var response = http.request('http://httpbin.org/status/500', null, null, null, null, true);
     log.debug('received: ' + response);
 }
 
 handlers.httpRequestUntilTimeout = function (args) {
+    log.info('before the error');
     while(true) {
         var response = http.request('http://httpbin.org/delay/10');
         log.debug('delayed');
