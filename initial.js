@@ -71,3 +71,9 @@ handlers.httpRequestUntilTimeout = function (args) {
 handlers.httpRequestDNSLookupFailure = function (args) {
         var response = http.request('http://cstest123.playfab.com');
 }
+
+handlers.usingPlayStreamEentAndProfile = function (args, context) {
+    var psEvent = context.playStreamEvent;
+    var profile = context.playerProfile;
+    return { eventName: psEvent.EventName, platformUserId: psEvent.PlatformUserId, profileDispName: profile.DisplayName };
+}
