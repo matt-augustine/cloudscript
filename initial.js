@@ -72,8 +72,23 @@ handlers.httpRequestDNSLookupFailure = function (args) {
         var response = http.request('http://cstest123.playfab.com');
 }
 
-handlers.usingPlayStreamEentAndProfile = function (args, context) {
+handlers.usingPlayStreamEventAndProfile = function (args, context) {
     var psEvent = context.playStreamEvent;
     var profile = context.playerProfile;
-    return { eventName: psEvent.EventName, platformUserId: psEvent.PlatformUserId, profileDispName: profile.DisplayName };
+    return { eventName: psEvent.EventName, profileDispName: profile.DisplayName };
+}
+
+handlers.usingScheduledTaskInterval = function (args, context) {
+    server.SetTitleInternalData(
+    {
+        Key: 'usingScheduledTaskInterval',
+        Value: context.scheduledInterval
+    });
+
+    var result = server.GetTitleInternalData(
+    {
+        Keys: ['usingScheduledTaskInterval' ]
+    });
+
+    return { titleData: result.Data['usingScheduledTaskInterval'] };
 }
