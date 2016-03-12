@@ -92,3 +92,16 @@ handlers.usingScheduledTaskInterval = function (args, context) {
 
     return { titleData: result.Data['usingScheduledTaskInterval'] };
 }
+
+
+handlers.SamplePSAction = function (args, context) {
+    var psEvent = context.playStreamEvent;
+    var profile = context.playerProfile;
+    var fooVal = profile.Statistics["foofoo"];
+    var barVal = psEvent.EventId;
+    var returnVal =  { foo: fooVal, bar: barVal };
+    log.debug('something happened');
+    log.info('I am going to return ', returnVal);
+    log.error('something bad happened');
+    return;
+}
