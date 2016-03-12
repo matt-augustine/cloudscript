@@ -103,5 +103,5 @@ handlers.SamplePSAction = function (args, context) {
     log.debug('something happened');
     log.info('I am going to return ', returnVal);
     log.error('something bad happened');
-    return;
+    return returnVal;
 }
