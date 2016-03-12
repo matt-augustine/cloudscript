@@ -97,7 +97,15 @@ handlers.usingScheduledTaskInterval = function (args, context) {
 handlers.SamplePSAction = function (args, context) {
     var psEvent = context.playStreamEvent;
     var profile = context.playerProfile;
-    var fooVal = profile.Statistics["foofoo"];
+    var stat = null;
+    
+    for (var i = 0; i < profile.PlayerStatistics.length; i++) {
+    	if (profile.PlayerStatistics[i].Name == "foofoo") {
+    		stat = profile.PlayerStatistics[i];
+    		break;
+    	}
+    }
+    var fooVal = stat.Value;
     var barVal = psEvent.EventId;
     var returnVal =  { foo: fooVal, bar: barVal };
     log.debug('something happened');
